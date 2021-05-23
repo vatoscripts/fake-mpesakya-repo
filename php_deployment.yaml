@@ -5,7 +5,7 @@ metadata:
   labels:
     tier: backend
 spec:
-  replicas: 3
+  replicas: 2
   selector:
     matchLabels:
       app: php
@@ -19,21 +19,21 @@ spec:
       volumes:
       - name: dir
         hostPath:
-          path: /so
+          path: /soo
       containers:
       - name: php
-        image: kiyange26773/app23may2021:latest
+        image: kiyange26773/mpesakya:latest
         volumeMounts:
         - name: dir
-          mountPath: /so
+          mountPath: /soo
       initContainers:
       - name: install
         image: busybox
         volumeMounts:
         - name: dir
-          mountPath: /so
+          mountPath: /soo
         command:
         - cp
         - "-r"
         - "/var/www/."
-        - "/so/app"
+        - "/soo/app"
